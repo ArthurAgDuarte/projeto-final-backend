@@ -39,6 +39,7 @@ model Produtos{
   descricao String
   preco Float 
   preco_desconto Float
+  desconto_off Float @default(30)
   img ProdutosImg?
   catprod CatProd?
 }
