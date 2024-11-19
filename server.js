@@ -1,27 +1,14 @@
-import { PrismaClient } from "@prisma/client";
 import express, { json } from "express";
-
-
-const prisma = new PrismaClient();
+import route from "./src/route/route.js";
+// import cors from "cors";
 
 const app = express();
 const porta = 3000;
-app.use(json());
+app.use(express.json());
+// app.use(cors());
 
-
-app.get('/', async (req, res)=> {
-    const created = await prisma.users.create(
-        {
-            data:{
-                email: "arthur@gmail.com",
-                nome: "arthur"
-            }
-        }
-    )
-    res.send(created);
-});
-
+app.use("/api", route);
 app.listen(porta, () => {
-    console.log(`Servidor rodando em http://localhost:${porta}`);
-    
+  console.log(`"Servidor rodando em https://localhost:${porta}"`);
 });
+
