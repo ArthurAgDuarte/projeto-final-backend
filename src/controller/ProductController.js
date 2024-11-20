@@ -5,7 +5,7 @@ class ProductController {
       const data = await ProductRepository.getAllProduct();
       response.status(200).json(data);
     } catch (error) {
-      response.status(400).json(error);
+      response.status(500).json(error);
     }
   }
   async createProduct(request, response) {
@@ -29,7 +29,7 @@ class ProductController {
       const data = await ProductRepository.getProductById();
       response.status(200).json(data);
     } catch (error) {
-      response.status(400).json(error);
+      response.status(404).json(error);
     }
   }
   async deleteProduct(request, response) {
