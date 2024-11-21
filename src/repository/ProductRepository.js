@@ -7,6 +7,33 @@ class ProductRepository {
       },
     });
   }
+  async createProduct() {
+    return await prisma.produtos.create({
+      include: {
+        img: true,
+      },
+    });
+  }
+  async updateProduct() {
+    return await prisma.produtos.update({
+      include: {
+        img: true,
+      },
+    });
+  }
+  async getProductById() {
+    return await prisma.produtos.getAll({
+      include: {
+        img: true,
+      },
+    });
+  }
+  async deleteProduct() {
+    return await prisma.produtos.delete({
+      include: {
+        img: true,
+      },
+    });
+  }
 }
-
 export default new ProductRepository();

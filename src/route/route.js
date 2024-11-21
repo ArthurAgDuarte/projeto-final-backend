@@ -4,7 +4,7 @@ import UserController from "../controller/UserController.js";
 
 const route = express.Router();
 // Entender se a cade requisição é criada uma instância de userController
-route.get("/product/all", ProductController.getAll);
+route.get("/product/all", ProductController.getAllProduct);
 
 route.post("/user/register", UserController.create)
 
