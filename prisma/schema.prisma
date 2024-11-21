@@ -11,7 +11,7 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model Users{
@@ -19,6 +19,13 @@ model Users{
   nome String
   email String @unique
   senha String
+  cpf String
+  telefone String
+  endereco String
+  bairro String
+  cidade String
+  cep String
+  complemento String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

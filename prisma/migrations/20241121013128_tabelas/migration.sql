@@ -4,6 +4,13 @@ CREATE TABLE `Users` (
     `nome` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `senha` VARCHAR(191) NOT NULL,
+    `cpf` VARCHAR(191) NOT NULL,
+    `telefone` VARCHAR(191) NOT NULL,
+    `endereco` VARCHAR(191) NOT NULL,
+    `bairro` VARCHAR(191) NOT NULL,
+    `cidade` VARCHAR(191) NOT NULL,
+    `cep` VARCHAR(191) NOT NULL,
+    `complemento` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -30,6 +37,7 @@ CREATE TABLE `Produtos` (
     `descricao` VARCHAR(191) NOT NULL,
     `preco` DOUBLE NOT NULL,
     `preco_desconto` DOUBLE NOT NULL,
+    `desconto_off` DOUBLE NOT NULL DEFAULT 30,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
