@@ -12,13 +12,13 @@ class UserRepository{
                     email: body.email,
                     nome: body.name,
                     senha: hashPassword,
-                    bairro: "IHDUWHUD",
-                    cep: "987TRER6789",
-                    cidade: "SDCOIDHNI",
-                    complemento: "7E622",
-                    cpf: "8276679802987",
-                    endereco: "0987654",
-                    telefone: "O987654568798",
+                    bairro: body.bairro,
+                    cep: body.cep,
+                    cidade: body.cidade,
+                    complemento: body.complemento,
+                    cpf: body.cpf,
+                    endereco: body.endereco,
+                    telefone: body.telefone,
                     
                 }
             })

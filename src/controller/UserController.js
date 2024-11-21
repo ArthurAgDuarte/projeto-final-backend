@@ -1,6 +1,6 @@
 import UserRepository from "../repository/UserRepository.js";
 import { validatePassword } from "../utils/bcrypt.js";
-
+import gerarToken from "../utils/jwt.js";
 class UserController{
     async create(req, res){
         try {
@@ -29,8 +29,13 @@ class UserController{
             if (verifyPassword === false) {
                 return response.status(404).json("senha inválida")
             }
+            
+            const token = gerarToken(request.body.email);
+            return response.status(200).json({
+                token: token,
+                message: "Login efetuado e token gerado"
+            })
 
-            return response.status(200).json("login efetuado!")
         }
         catch(error) {
             console.log(error);
