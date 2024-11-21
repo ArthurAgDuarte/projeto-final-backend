@@ -3,6 +3,7 @@ import crypto from "../utils/bcrypt.js";
 
 class UserRepository{
 
+
     async create(body){
         try {
             const hashPassword = crypto(body.password)
@@ -20,6 +21,25 @@ class UserRepository{
 
         // return await prisma.users.create()
     }
+
+    
+
+    async getUnique(body) {
+
+        try {
+        const login = await prisma.users.findUnique({
+            where: {
+                email: body.email
+            }
+        })
+        
+        return login;
+
+    } catch (error) {
+
+    }
+
+  }
 
 }
 
