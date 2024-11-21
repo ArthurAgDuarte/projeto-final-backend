@@ -6,7 +6,7 @@ class UserController{
             const createUser = await UserRepository.create(req.body)
             console.log(createUser);
             
-            return res.status(201).json("Usuário cadastrado com sucesso" + createUser)
+            return res.status(201).json(`Usuário cadastrado com sucesso!\n ${createUser}`)
         } 
         catch (error) {
             return res.status(400).json(error)
