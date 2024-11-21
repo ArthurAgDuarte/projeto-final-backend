@@ -1,10 +1,8 @@
-import bcrypt from "bcrypt"
-const salts = parseInt(process.env.SALT_ROUNDS);
-const crypto = (passwords) =>{
-    return bcrypt.hashSync(passwords, salts)
-}
+import bcrypt from "bcrypt";
 
+const SALTS = process.env.SALTS_ROUNDS;
+const cryptPassword = (password) => {
+  return bcrypt.hashSync(password, 10);
+};
 
-// console.log(typeof process.env.SALT_ROUNDS);
-
-export default crypto;
+export default cryptPassword;

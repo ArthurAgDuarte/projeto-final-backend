@@ -15,7 +15,7 @@ class ProductController {
 
   async getAllProduct(request, response) {
     try {
-      const data = await ProductRepository.getAll();
+      const data = await ProductRepository.getAllProduct();
       response.status(200).json(data);
     } catch (error) {
       console.error("Erro ao buscar produtos:", error.message);
