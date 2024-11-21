@@ -11,7 +11,15 @@ class UserRepository{
                 data:{
                     email: body.email,
                     nome: body.name,
-                    senha: hashPassword
+                    senha: hashPassword,
+                    bairro: "IHDUWHUD",
+                    cep: "987TRER6789",
+                    cidade: "SDCOIDHNI",
+                    complemento: "7E622",
+                    cpf: "8276679802987",
+                    endereco: "0987654",
+                    telefone: "O987654568798",
+                    
                 }
             })
             return createResult;
@@ -31,12 +39,15 @@ class UserRepository{
             where: {
                 email: body.email
             }
+
+            
         })
-        
+                
         return login;
 
     } catch (error) {
 
+        throw error;
     }
 
   }

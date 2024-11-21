@@ -17,12 +17,14 @@ class UserController{
     async getUnique(request, response) {
         try {
             const data = await UserRepository.getUnique(request.body);
+            console.log(data); 
+            
             
             if(!data) {
                 return response.status(404).json("usuário não cadastrado no sistema")
             }
               
-            const verifyPassword = validatePassword(body.password, data.senha);
+            const verifyPassword = validatePassword(request.body.password, data.senha);
              
             if (verifyPassword === false) {
                 return response.status(404).json("senha inválida")
@@ -31,6 +33,8 @@ class UserController{
             return response.status(200).json("login efetuado!")
         }
         catch(error) {
+            console.log(error);
+            
             return response.status(400).json(error);
         }
     }
