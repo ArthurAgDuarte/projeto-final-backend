@@ -21,7 +21,7 @@ class UserController{
             
             
             if(!data) {
-                return response.status(404).json("usuário não cadastrado no sistema")
+                return response.status(400).json("usuário não cadastrado no sistema")
             }
               
             const verifyPassword = validatePassword(request.body.password, data.senha);

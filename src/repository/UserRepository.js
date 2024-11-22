@@ -1,14 +1,13 @@
-import prisma from "../connection/connection.js"
-import crypto from "../utils/bcrypt.js";
+import prisma  from "../connection/connection.js";
+import cryptPassword from "../utils/bcrypt.js";
+class UserRepository {
 
-class UserRepository{
-
-
-    async create(body){
+    async create(body) {
         try {
-            const hashPassword = crypto(body.password)
+
+            const hashPassword = cryptPassword(body.password);
             const createResult = await prisma.users.create({
-                data:{
+                data: {
                     email: body.email,
                     nome: body.name,
                     senha: hashPassword,
@@ -19,40 +18,32 @@ class UserRepository{
                     cpf: body.cpf,
                     endereco: body.endereco,
                     telefone: body.telefone,
-                    
-                }
+                } 
             })
             return createResult;
-        } catch (err) {
-            return err;
         }
-
-        // return await prisma.users.create()
+        catch(error) {
+            throw error;
+        }
+     
     }
-
-    
 
     async getUnique(body) {
-
         try {
-        const login = await prisma.users.findUnique({
-            where: {
-                email: body.email
-            }
+            const data = await prisma.users.findUnique({
+                where: {
+                    email: body.email
+                }
+            })
+            return data;
+        }
 
+        catch(error) {
             
-        })
-                
-        return login;
-
-    } catch (error) {
-
-        throw error;
+            throw error;
+        }
     }
 
-  }
-
 }
-
 
 export default new UserRepository();

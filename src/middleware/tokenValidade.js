@@ -2,10 +2,10 @@ import { verifyToken } from "../utils/jwt.js";
 
 const validateToken = (request, response) =>{
     try{
-        const token = request.headers.authorization;
+        const token = request.header.authorization;
 
         const validateToken = verifyToken(token);
-        console.log(token);
+        console.log(validateToken);
 
         next();
         
