@@ -43,8 +43,7 @@ class UserRepository {
             throw error;
         }
     }
- 
+    // return await prisma.users.create()
   }
-
 
 export default new UserRepository();
