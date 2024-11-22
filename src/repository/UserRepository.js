@@ -43,7 +43,8 @@ class UserRepository {
             throw error;
         }
     }
+ 
+  }
 
-}
 
 export default new UserRepository();
