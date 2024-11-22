@@ -5,7 +5,7 @@ class UserRepository {
     async create(body) {
         try {
 
-            const hashPassword = cryptPassword(body.password);
+            const hashPassword = cryptPassword(body.senha);
             const createResult = await prisma.users.create({
                 data: {
                     email: body.email,
@@ -20,7 +20,9 @@ class UserRepository {
                     telefone: body.telefone,
                 } 
             })
+            console.log(createResult);
             return createResult;
+            
         }
         catch(error) {
             throw error;
