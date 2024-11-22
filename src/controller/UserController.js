@@ -31,8 +31,10 @@ class UserController{
             }
             
             const token = gerarToken(request.body.email);
+            const user = (request.body)
             return response.status(200).json({
                 token: token,
+                user:user,
                 message: "Login efetuado e token gerado"
             })
 
