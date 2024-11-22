@@ -5,7 +5,7 @@ import validateToken from "../middleware/tokenValidade.js";
 
 const route = express.Router();
 // Entender se a cade requisição é criada uma instância de userController
-route.get("/product/all", ProductController.getAll);
+// route.get("/product/all", ProductController.getAll);
 route.post("/user/login", UserController.getUnique)
 route.post("/user/register", UserController.create)
 route.get("/adm/product", validateToken, (request, response) => {
@@ -15,7 +15,7 @@ route.get("/adm/product", validateToken, (request, response) => {
 
 
 route.get("/product/all", ProductController.getAllProduct);
-route.post("/product/register", UserController.createProduct);
+route.post("/product/register", ProductController.createProduct);
 route.put("/:id", ProductController.updateProduct);
 route.get("/:id", ProductController.getProductById);
 route.delete("/:id", ProductController.deleteProduct);
