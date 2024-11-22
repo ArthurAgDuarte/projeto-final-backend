@@ -10,6 +10,8 @@ class UserController{
             return res.status(201).json(`Usuário cadastrado com sucesso!\n ${createUser}`)
         } 
         catch (error) {
+            console.log(error);
+            
             return res.status(400).json(error)
         }
     }

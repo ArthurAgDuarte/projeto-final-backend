@@ -1,7 +1,6 @@
 import express from "express";
 import ProductController from "../controller/ProductController.js";
 import UserController from "../controller/UserController.js";
-import UserRepository from "../repository/UserRepository.js";
 import validateToken from "../middleware/tokenValidade.js";
 
 const route = express.Router();
